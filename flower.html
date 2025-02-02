@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growing Flower Animation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #87CEEB; /* Sky Blue background */
+        }
+
+        .flower {
+            position: relative;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 60px solid #8B4513; /* Brown for flower stem */
+            animation: grow 3s ease-out infinite;
+        }
+
+        .flower::before,
+        .flower::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .flower::before {
+            top: -10px;
+            left: -10px;
+            background-color: #FFD700; /* Yellow for flower center */
+        }
+
+        .flower::after {
+            top: -30px;
+            left: -30px;
+            background-color: #FF69B4; /* Pink for flower petals */
+            box-shadow: 25px 0 0 #FF69B4, -25px 0 0 #FF69B4, 0 25px 0 #FF69B4, 0 -25px 0 #FF69B4;
+        }
+
+        @keyframes grow {
+            0% {
+                width: 0;
+                height: 0;
+            }
+            50% {
+                width: 20px;
+                height: 60px;
+            }
+            100% {
+                width: 0;
+                height: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flower"></div>
+
+</body>
+</html>

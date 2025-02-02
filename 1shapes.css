@@ -1,0 +1,82 @@
+            .square {
+                
+                content:"";
+                position: relative;
+                border-width: 2px;
+                color:red;
+                height: 100px;
+                width: 100px;
+                transform: rotate(-45deg);
+                animation: heartbeat 1s infinite;
+            }
+
+            .square::before,
+            .square::after {
+                content:"";
+                position: absolute;
+                
+                color:red;
+                height: 100px;
+                width: 100px;
+            }
+
+            .square::before {
+                top:-50px;
+                left:0;
+            }
+
+            .square::after {
+                top:0;
+                left:-50px;
+            }
+
+            @keyframes square {
+                0%,100% {
+                    transform:scale(1);
+                }
+                50% {
+                    transform:scale(1.1);
+                }
+            }
+        
+            .rectangle {
+              
+                content:"";
+                position: relative;
+                border:2px;
+                color:blueviolet;
+                transform: rotate(-50%);
+                height: 80px;
+                width: 100px;
+                animation: rotate 1s infinite;
+            }
+
+            .rectangle::before,
+            .rectangle::after {
+                content:"";
+                position:absolute;
+                color:blueviolet;
+                height: 80px;
+                width: 100px;
+                
+            }
+
+            .rectangle::before {
+                top:-50%;
+                left:0;
+            
+            }
+
+            .rectangle::after {
+                top:0;
+                left:-50%;
+            }
+
+            @keyframes rectangle{
+                0%,100% {
+                    transform:scale(1);
+                }
+                50% {
+                    transform:scale(1.1);
+                }
+            }

@@ -1,0 +1,35 @@
+.square{
+    
+    height:6cm;
+    width: 6cm;
+    background-color: red;
+    margin-top:4cm;
+   margin-left: 4cm;
+    border-width: 2px;
+    border-color: black;
+    transition: transform 2s;
+    box-shadow:10px 10px 10px;
+}
+.square:hover{
+transform: rotate(360deg);
+}
+
+.rectangle{
+    position:fixed;
+    height:6cm;
+    width: 8cm;
+    background-color: blueviolet;
+    border-width: 2px;
+    border-color: black;
+    margin-top:-6cm;
+    margin-left: 12cm;
+    transition: transform 2s;
+    box-shadow:10px 10px 10px;
+   
+
+}
+.rectangle:hover {
+    transform:rotate(360deg)
+
+}
+

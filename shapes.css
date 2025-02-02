@@ -1,0 +1,89 @@
+            body {
+                display:flex;
+                background-color: orange;
+                align-items:center;
+                justify-content:center;
+                height:100vh;
+                margin:0;
+            }
+
+            .heart {
+                content:"";
+                position: relative;
+                border-width: 2px;
+                color:red;
+                height: 100px;
+                width: 100px;
+                transform: rotate(-45deg);
+                animation: heartbeat 1s infinite;
+            }
+
+            .heart::before,
+            .heart::after {
+                content:"";
+                position: absolute;
+                border-radius: 50px;
+                color:red;
+                height: 100px;
+                width: 100px;
+            }
+
+            .heart::before {
+                top:-50px;
+                left:0;
+            }
+
+            .heart::after {
+                top:0;
+                left:-50px;
+            }
+
+            @keyframes heart {
+                0%,100% {
+                    transform:scale(1);
+                }
+                50% {
+                    transform:scale(1.1);
+                }
+            }
+        
+            .rectangle {
+                content:"";
+                position: relative;
+                border:2px;
+                color:blueviolet;
+                transform: rotate(-50%);
+                height: 100px;
+                width: 100px;
+                animation: rotate 1s infinite;
+            }
+
+            .rectangle::before,
+            .rectangle::after {
+                content:"";
+                position:relative;
+                color:blueviolet;
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+            }
+
+            .rectangle::before {
+                top:-50%;
+                left:0;
+            
+            }
+
+            .rectangle::after {
+                top:0;
+                left:-50%;
+            }
+
+            @keyframes rectangle{
+                0%,100% {
+                    transform:scale(1);
+                }
+                50% {
+                    transform:scale(1.1);
+                }
+            }

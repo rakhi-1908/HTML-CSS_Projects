@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@android:color/transparent"
+        android:src="@drawable/power_off" />
+</RelativeLayout>
+another code for flast light
+package com.example.flashlight;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ImageButton toggleButton;
+
+    boolean hasCameraFlash = false;
+    boolean flashOn = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        toggleButton = findViewById(R.id.toggleButton);
+
+        hasCameraFlash = findPackageManager().hasSysytemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(hasCameraFlash){
+                    if(flashOn){
+                        flashOn = false;
+                        toggleButton.setImageResource(R.drawable.power_off);
+                        flashLightOff();
+                    }
+                    else{
+                        flashOn = true;
+                        toggleButton.setImageResource(R.drawable.power_on);
+                        flashLightOn();
+                    }
+                }
+                else{
+                  
+                    Toast.makeText(context:MainActivty.this, text:"No flash available on your device."
+                    Toast.LENGTH_LONG)
+                }
+            }
+        });
+        
+    }
+    private void flashLightOn(){
+        CameraManager cameraManager  = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        String cameraId = cameraManager.getCameraIdlist()[0];
+        cameraManager.setTorchMode(cameraId,enabled:true);
+        Toast.makeTExt(context: MainActivity.this, text:"FlashLight is ON",Toast.LENGTH_SHORT).show();
+        
+    }
+    private void flashLightOn() throws CameraAccessException {
+        CameraManager cameraManager  = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        assert cameraManager != null;
+        String cameraId = cameraManager.getCameraIdlist()[0];
+        cameraManager.setTorchMode(cameraId, enabled:false);
+        Toast.makeTExt(context: MainActivity.this, text:"FlashLight is OFF",Toast.LENGTH_SHORT).show();
+
+    }
